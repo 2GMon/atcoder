@@ -1,0 +1,49 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "download problem",
+            "type": "shell",
+            "command": "./utils/dl_problem.bash ${input:problem_url}",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+                "showReuseMessage": false,
+                "clear": false
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "competitiveTestSample",
+            "type": "shell",
+            "command": "cd ${fileDirname} && g++ -O0 -std=c++17 ${fileBasename} && oj t",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            }
+        },
+        {
+            "label": "competitiveSubmit",
+            "type": "shell",
+            "command": "cd ${fileDirname} && oj s main.cpp",
+            "presentation": {
+                "reveal": "always",
+                "focus": true,
+                "panel": "shared",
+            }
+        }
+    ],
+    "inputs": [
+        {
+            "id": "problem_url",
+            "description": "ダウンロードしたい問題のURL",
+            "default": "",
+            "type": "promptString"
+        }
+    ]
+}
