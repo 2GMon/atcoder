@@ -12,15 +12,15 @@ public:
     size_ = size + 2;
     bit.resize(size_ + 2, 0);
   }
-  void add(int pos, long long x) {
+  void add(int pos, ll x) {
     pos++;
     while (pos <= size_) {
       bit[pos] += x;
       pos += (pos & -pos);
     }
   }
-  long long sum(int pos) {
-    long long s = 0; pos++;
+  ll sum(int pos) {
+    ll s = 0; pos++;
     while (pos >= 1) {
       s += bit[pos];
       pos -= (pos & -pos);
