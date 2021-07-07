@@ -9,6 +9,7 @@ class RangeMinimumQuery {
   int n; // 葉の数
   vector<T> seg;
 
+public:
   void init(int sz) {
     int x = 1;
     while (x < sz) {
@@ -23,14 +24,17 @@ class RangeMinimumQuery {
     seg[i] = x;
 
     while (i > 0) {
-      i = (i / 1) / 2;
+      i = (i - 1) / 2;
       seg[i] = min(seg[i * 2 + 1], seg[i * 2 + 2]);
     }
   }
 
   // [a, b)の最小値
   // k = 現在見ているノード, l = 見ているノードがカバーする葉の一番左, r = 見ているノードがカバーする葉の一番右 + 1
-  T query(int a, int b, int k, int l, int r) {
+  T query(int a, int b, int k = -1, int l = -1, int r = -1) {
+    if (k == -1) k = 0;
+    if (l == -1) l = 0;
+    if (r == -1) r = n;
     if (r <= a || b <= l) { // [l, r)が[a, b)の外にある
       return INF;
     } else if (a <= l && r <= b) { // [l, r)が[a, b)に完全に含まれる
@@ -50,6 +54,7 @@ class RangeUpdatedMinimumQuery {
   int n; // 葉の数
   vector<T> seg, lazy;
 
+public:
   void init(int sz) {
     int x = 1;
     while (x < sz) {
@@ -88,7 +93,10 @@ class RangeUpdatedMinimumQuery {
 
   // [a, b)の最小値
   // k = 現在見ているノード, l = 見ているノードがカバーする葉の一番左, r = 見ているノードがカバーする葉の一番右 + 1
-  T query(int a, int b, int k, int l, int r) {
+  T query(int a, int b, int k = -1, int l = -1, int r = -1) {
+    if (k == -1) k = 0;
+    if (l == -1) l = 0;
+    if (r == -1) r = n;
     eval(k);
 
     if (r <= a || b <= l) { // [l, r)が[a, b)の外にある
