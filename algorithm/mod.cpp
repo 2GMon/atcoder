@@ -13,3 +13,17 @@ long long modinv(long long a, long long m) {
     if (u < 0) u += m;
     return u;
 }
+
+// mod. m での a^b
+long long modpow(long long a, long long b, long long m) {
+    long long ans = 1;
+    while (b != 0) {
+        if (b % 2 == 1)
+        {
+            ans = ans * a % m;
+        }
+        a = a * a % m;
+        b /= 2;
+    }
+    return ans;
+}
