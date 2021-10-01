@@ -25,16 +25,18 @@
                 "reveal": "always",
                 "focus": true,
                 "panel": "shared",
+                "clear": true,
             }
         },
         {
             "label": "competitiveSubmit",
             "type": "shell",
-            "command": "cd ${fileDirname} && oj s main.cpp",
+            "command": "cd ${fileDirname} && oj s -y main.cpp",
             "presentation": {
                 "reveal": "always",
                 "focus": true,
                 "panel": "shared",
+                "showReuseMessage": true,
             }
         }
     ],
