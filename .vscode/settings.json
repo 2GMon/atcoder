@@ -17,6 +17,7 @@
     "code-runner.preserveFocus": false,
     "code-runner.ignoreSelection": true,
     "files.associations": {
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "iostream": "cpp"
     },
 }
