@@ -18,6 +18,7 @@
     "code-runner.ignoreSelection": true,
     "files.associations": {
         "ostream": "cpp",
-        "iostream": "cpp"
+        "iostream": "cpp",
+        "iomanip": "cpp"
     },
 }
